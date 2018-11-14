@@ -1,14 +1,16 @@
 <template>
   <div class="app">
-    <Goodslist></Goodslist>
+    <goodsins></goodsins>
   </div>
 </template>
 
 <script>
+import goodsins from'./page/goodsins'
 import Goodslist from'./page/Goodslist'
 export default {
   name: 'App',
   components:{
+    goodsins,
     Goodslist
   }
 }
