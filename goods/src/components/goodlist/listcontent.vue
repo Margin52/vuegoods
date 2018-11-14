@@ -1,9 +1,11 @@
 <template>
-  <div class="listcontent" v-for="listcontentarrdel in listcontentarr" :key="listcontentarrdel.index">
-      <p>{{listcontentarrdel.listconname}}</p>
-      <p>{{listcontentarrdel.listcontel}}</p>
-      <p>{{listcontentarrdel.listconadd}}</p>
-      <img src="../../assets/images/listedit.png" alt=""/>
+  <div class="listcontent">
+    <div class="listcontentbox" v-for="(listcontentarrdel, index) in listcontentarr" :key="index">
+        <p>{{listcontentarrdel.listconname}}</p>
+        <p>{{listcontentarrdel.listcontel}}</p>
+        <p><span>[默认]</span>{{listcontentarrdel.listconadd}}</p>
+        <img :src="listcontentarrdel.listconedit"/>
+    </div>
   </div>
 </template>
 
@@ -13,35 +15,24 @@ export default {
   props:{
      listcontentarr:Array
   },
-  data(){
-    return {
-      // listcontentarr:[
-      //   {
-      //     listconname:"杨昊",
-      //     listcontel:15202926079,
-      //     listconadd:"陕西省西安市雁塔区中兴产业园",
-      //     listconedit:"../../assets/images/listedit.png"
-      //   },
-      //   {
-      //     listconname:"Matail",
-      //     listcontel:18066520611,
-      //     listconadd:"陕西省西安市雁塔区唐延南路10号",
-      //     listconedit:"../../assets/images/listedit.png"
-      //   }
-      // ]
-
-    },
-
-  },
   watch:{},
   computed:{},
   methods:{},
   created(){},
-  mounted(){}
-}
+  mounted(){
+  }
+
+  }
+
 </script>
 <style lang="scss" scoped>
 .listcontent{
+  display:flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+}
+.listcontentbox{
   height:1.81rem;
   border-top:1px solid #e7e7e7;
   border-bottom: 1px solid #e7e7e7;
@@ -64,6 +55,12 @@ export default {
   font-size:0.28rem;
   color:#111111;
   line-height:0.46rem;
+}
+.listcontent :nth-child(3) span{
+  font-size:0.28rem;
+  color:#df005e;
+  line-height:0.42rem;
+  margin-top:0.04rem;
 }
 .listcontent :nth-child(3){
   font-size:0.28rem;
