@@ -4,7 +4,7 @@
       <img src="../../assets/images/listback.png" alt=""/>
     </router-link>
     <span>关闭</span>
-    <p>新增收货地址</p>
+    <p>修改收货人地址</p>
   </div>
 </template>
 

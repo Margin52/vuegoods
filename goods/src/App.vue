@@ -1,17 +1,20 @@
 <template>
   <div class="app">
-    <goodsins></goodsins>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import goodsins from'./page/goodsins'
 import Goodslist from'./page/Goodslist'
+import goodsdec from'./page/goodsdec'
+
 export default {
   name: 'App',
   components:{
     goodsins,
-    Goodslist
+    Goodslist,
+    goodsdec
   }
 }
 </script>
