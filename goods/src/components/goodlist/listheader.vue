@@ -1,6 +1,8 @@
 <template>
   <div class="listheader">
+    <router-link to="/">
       <img src="../../assets/images/listback.png" alt=""/>
+    </router-link>
       <span>关闭</span>
       <p>收货地址管理</p>
   </div>

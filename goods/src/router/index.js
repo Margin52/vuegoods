@@ -4,18 +4,25 @@ import HelloWorld from '@/components/HelloWorld'
 import goodsins from '../page/goodsins.vue'
 import goodsdec from '../page/goodsdec.vue'
 import Goodslist from '../page/Goodslist.vue'
+import reg from '../page/reg.vue'
+
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: 'reg',
+      component: reg
+    },
+    {
       path: '/HelloWorld',
       name: 'HelloWorld',
       component: HelloWorld
     },
     {
-      path: '/',
+      path: '/goodsins',
       name: 'goodsins',
       component: goodsins
     },

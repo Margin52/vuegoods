@@ -1,6 +1,6 @@
 <template>
   <div class="listfooter">
-    <router-link to="/">
+    <router-link to="/goodsins">
       <p>新增收货人地址</p>
     </router-link>
   </div>
