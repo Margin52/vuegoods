@@ -1,6 +1,8 @@
 <template>
-  <div class="insfooter">
-    <p>保存</p>
+  <div class="decfooter">
+    <router-link to="/Goodslist">
+      <p>保存</p>
+    </router-link>
   </div>
 </template>
 
@@ -14,12 +16,12 @@
 </script>
 
 <style lang='scss' scoped='' type='text/css'>
-.insfooter{
+.decfooter{
   width:100%;
   height:1.26rem;
   background:#fff;
 }
-.insfooter p{
+.decfooter p{
   width:5.88rem;
   height:0.83rem;
   font-size:0.27rem;
