@@ -1,6 +1,8 @@
 <template>
   <div class="listfooter">
-    <p>新增收货人地址</p>
+    <router-link to="/">
+      <p>新增收货人地址</p>
+    </router-link>
   </div>
 </template>
 

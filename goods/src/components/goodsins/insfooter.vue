@@ -1,6 +1,8 @@
 <template>
   <div class="insfooter">
-    <p>保存</p>
+    <router-link to="/Goodslist">
+      <p>保存</p>
+    </router-link>
   </div>
 </template>
 

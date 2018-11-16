@@ -1,5 +1,5 @@
 <template>
-  <div class="insheader">
+  <div class="decheader">
     <router-link to="/Goodslist">
       <img src="../../assets/images/listback.png" alt=""/>
     </router-link>
@@ -19,7 +19,7 @@
 
 <style lang='scss' scoped='' type='text/css'>
 
-.insheader{
+.decheader{
   width:100%;
   display:flex;
   align-items:center;
@@ -28,19 +28,19 @@
   padding:0 0.26rem;
   background:#0085cf;
 }
-.insheader img{
+.decheader img{
   width:0.5rem;
   height:0.5rem;
   margin-right:0.2rem;
 }
-.insheader span{
+.decheader span{
   font-size:0.28rem;
   color:#ffffff;
   opacity: .9;
   margin-right:0.50rem;
   margin-top:0.04rem;
 }
-.insheader p{
+.decheader p{
   font-size:0.34rem;
   color:#ffffff;
   opacity: .9;

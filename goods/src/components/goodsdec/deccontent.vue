@@ -1,18 +1,26 @@
 <template>
-  <div class="inscontent">
-    <div class="inspeople">
-      <input type="text" placeholder="收货人">
+  <div class="deccontent">
+    <div class="decpeople">
+      <span>收货人</span>
+      <input type="text" value="杨豪">
       <img src="../../assets/images/inspeople.png" alt="">
     </div>
-    <div class="instel">
-      <input type="text" placeholder="手机号码">
+    <div class="dectel">
+      <span>手机号码</span>
+      <input type="text" value="15202926079">
     </div>
-    <div class="insadd">
-      <input type="text" placeholder="所在地区">
+    <div class="decadd">
+      <span>所在地区</span>
+      <input type="text" value="陕西省西安市雁塔区">
       <img src="../../assets/images/insarror.png" alt="">
     </div>
-    <div class="insdel">
-      <input type="text" placeholder="详细地址">
+    <div class="decdel">
+      <span>详细地址</span>
+      <input type="text" value="中兴产业园">
+    </div>
+    <div class="decbut">
+      <img src="../../assets/images/insbut.png" alt="">
+      <span>设为默认</span>
     </div>
   </div>
 </template>
@@ -27,14 +35,14 @@
 </script>
 
 <style lang='scss' scoped='' type='text/css'>
-.inscontent{
+.deccontent{
   height:100%;
 }
 input{
   border:none;
   output:none;
 }
-.inspeople,.instel,.insadd,.insdel{
+.decpeople,.dectel,.decadd,.decdel,.decbut{
   width:100%;
   height:0.92rem;
   border-top:1px solid #e7e7e7;
@@ -45,23 +53,32 @@ input{
   padding-right:0.33rem;
   background:#fff;
   display:flex;
-  justify-content:space-between;
   align-items: center;
+}
+span{
+  display:inline-block;
+  width:1.44rem;
 }
 input{
   width:5rem;
-  font-size:0.27rem;
-  color:#969696;
+  font-size:0.26rem;
+  color:#000000;
 }
-.inspeople img {
+.decpeople img {
   display:inline-block;
   width:0.43rem;
   height:0.43rem;
 }
-.insadd img{
+.decadd img{
   display:inline-block;
   width:0.18rem;
   height:0.27rem;
   margin-right:0.1rem;
+}
+.decbut img{
+  display:inline-block;
+  width:0.42rem;
+  height:0.42rem;
+  margin-right:0.11rem;
 }
 </style>

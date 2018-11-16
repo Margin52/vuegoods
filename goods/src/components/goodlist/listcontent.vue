@@ -4,7 +4,9 @@
         <p>{{listcontentarrdel.listconname}}</p>
         <p>{{listcontentarrdel.listcontel}}</p>
         <p><span>[默认]</span>{{listcontentarrdel.listconadd}}</p>
-        <img :src="listcontentarrdel.listconedit"/>
+        <router-link to="/goodsdec">
+          <img :src="listcontentarrdel.listconedit"/>
+        </router-link>
     </div>
   </div>
 </template>
@@ -68,7 +70,7 @@ export default {
   line-height:0.42rem;
   margin-top:0.04rem;
 }
-.listcontent :nth-child(4){
+.listcontent :nth-child(4) img{
   width:0.45rem;
   height:0.45rem;
   position:absolute;
