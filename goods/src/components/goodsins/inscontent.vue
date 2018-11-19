@@ -11,12 +11,12 @@
     </div>
     <div class="insadd">
       <span>所在地区</span>
-      <input type="text">
+      <input type="text" v-model="area">
       <img src="../../assets/images/insarror.png" alt="">
     </div>
     <div class="insdel">
       <span>详细地址</span>
-      <input type="text">
+      <input type="text" v-model="delarea">
     </div>
     <div class="insbut">
       <img @click="changeimg" v-if="isShow" src="../../assets/images/insbut.png" alt="">
@@ -26,15 +26,19 @@
   </div>
 </template>
 
-<script type='text/ecmascript-6'>
+<script>
+import axios from 'axios'
   export default {
     data () {
       return {
         isShow:false,
         username:'',
-        phone:''
+        phone:'',
+        area:'',
+        delarea:''
       }
     },
+
     methods:{
       changeimg:function(){
         this.isShow = !this.isShow

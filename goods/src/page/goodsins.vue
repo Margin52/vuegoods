@@ -10,6 +10,7 @@
 import insheader from "../components/goodsins/insheader"
 import inscontent from "../components/goodsins/inscontent"
 import insfooter from "../components/goodsins/insfooter"
+import axios from 'axios'
   export default {
     components:{
       insheader,
