@@ -2,20 +2,17 @@
   <div class="goodsins">
     <insheader></insheader>
     <inscontent></inscontent>
-    <insfooter></insfooter>
   </div>
 </template>
 
 <script type='text/ecmascript-6'>
 import insheader from "../components/goodsins/insheader"
 import inscontent from "../components/goodsins/inscontent"
-import insfooter from "../components/goodsins/insfooter"
 import axios from 'axios'
   export default {
     components:{
       insheader,
-      inscontent,
-      insfooter
+      inscontent
     }
 
   }

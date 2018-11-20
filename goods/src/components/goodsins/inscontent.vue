@@ -23,6 +23,9 @@
       <img @click="changeimg" v-if="!isShow" src="../../assets/images/decbut.png" alt="">
       <span>设为默认</span>
     </div>
+    <div class="insfooter">
+      <p @click="savemsg">保存</p>
+    </div>
   </div>
 </template>
 
@@ -31,18 +34,41 @@ import axios from 'axios'
   export default {
     data () {
       return {
-        isShow:false,
+        isShow:true,
+        isDefault:"",
         username:'',
         phone:'',
         area:'',
         delarea:''
       }
     },
-
+    mounted(){
+    },
     methods:{
+      /**
+       * 默认按钮点击
+       */
       changeimg:function(){
         this.isShow = !this.isShow
+        /**
+         * 给按钮添加状态
+         * isDefault在保存用户信息的时候会用到
+         */
+        if(this.isShow){
+        /**
+         * 未设置默认
+         */
+          this.isDefault = "0"
+        }else{
+          /**
+           * 已设置默认
+           */
+          this.isDefault = "1"
+        }
       },
+      /**
+       * 客户端能力调用
+       */
       getcon:function(){
         var that = this
         leadeon.getContacts({
@@ -55,6 +81,55 @@ import axios from 'axios'
           },
           error: function(res) {}
         })
+      },
+      /**
+       * 保存新建联系人信息
+       */
+      savemsg:function(){
+        var user = this.username
+        var tel = this.phone
+        var add = this.area
+        var deladd = this.delarea
+        var data = JSON.parse(localStorage.getItem("goodsdata"))
+        // console.log(data)
+        if(data){
+          if(user && tel && add && deladd){
+            if(!this.isDefault || this.isDefault === "0"){
+              /**
+               * 未设置默认状态
+               */
+              data.push({
+                'checkIsUsed':this.isDefault,
+                'recName':user,
+                'recPhoneNo':tel,
+                'address':deladd
+              })
+              localStorage.setItem("goodsdata",JSON.stringify(data))
+              alert("您已保存成功")
+            }else{
+              /**
+               * 已设置默认状态
+               * 将其他的默认状态重置
+               */
+              data.forEach((item,index) => {
+                data[index].checkIsUsed = '0'
+              });
+              data.push({
+                'checkIsUsed':this.isDefault,
+                'recName':user,
+                'recPhoneNo':tel,
+                'address':deladd
+              })
+              localStorage.setItem("goodsdata",JSON.stringify(data))
+              console.log(localStorage.getItem("goodsdata"))
+              alert("您已保存成功")
+
+            }
+          }
+        }
+      },
+      testf:function(){
+        console.log("testf")
       }
     }
   }
@@ -106,5 +181,25 @@ input{
   width:0.42rem;
   height:0.42rem;
   margin-right:0.11rem;
+}
+.insfooter{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  height:1.26rem;
+  background:#fff;
+}
+.insfooter p{
+  width:5.88rem;
+  height:0.83rem;
+  font-size:0.27rem;
+  color:#fff;
+  background:#0085cf;
+  border-radius:0.07rem;
+  margin-left:0.3rem;
+  margin-top:0.2rem;
+  line-height:0.83rem;
+  text-align: center;
+
 }
 </style>

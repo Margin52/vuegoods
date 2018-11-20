@@ -4,8 +4,8 @@
         <p>{{goodsdatadel.recName}}</p>
         <p>{{goodsdatadel.recPhoneNo}}</p>
         <p><span>[默认]</span>{{goodsdatadel.address}}</p>
-        <router-link to="/goodsdec">
-          <img src="../../assets/images/listedit.png"/>
+        <router-link to="/goodsdec" >
+          <img @click="routerTo" :dataid="goodsdatadel.recAddrId" src="../../assets/images/listedit.png"/>
         </router-link>
     </div>
   </div>
@@ -17,19 +17,47 @@ export default {
   data () {
     return {
       isShow:false,
-      goodsdata:''
+      goodsdata:[],
+      ename:'',
+      ephone:'',
+      eaddress:''
     }
   },
   created(){
-      this.moockdata()
     },
+  mounted(){
+    this.isNull()
+    this.moockdata()
+  },
   methods:{
+    /**
+     * 点击默认按钮
+     */
     changeimg:function(){
       this.isShow = !this.isShow
     },
+    /**
+     * 判断从本地localStorage获取到的字符串是否为空
+     */
+    isNull:function(){
+      var strings = '';
+      strings = localStorage.getItem("goodsdata")
+        if (strings.length == 0)
+        {
+          this.moockdata()
+        }else{
+          var datas = JSON.parse(strings)
+          this.goodsdata = datas
+          // console.log("123")
+
+        }
+    },
+    /**
+     * 从mock请求数据
+     */
     moockdata:function(){
       axios.post('https://www.easy-mock.com/mock/5bf26de2a78cb61ecbaed73a/example/example')
-        .then (function(response){
+        .then ((response)=>{
           /**
            * 把mock的数据保存到localStorage中
           */
@@ -46,22 +74,38 @@ export default {
            * JSON.parse的作用是将string转换为json
            */
           var datas = JSON.parse(localStorage.getItem("goodsdata"))
-          console.log(datas)
+          // console.log(datas)
           this.goodsdata = datas
+          /**
+           * 把response写成函数的时候，this指向不知道指向哪里，下面的console打印不出来，然后改成箭头函数之后可以了
+           */
+          // console.log(this.goodsdata)
         })
         .catch(function(error){
           return error
         })
+      },
+      /**
+       * 获取一组dom数据的id，提前在img中绑定一组数据的id
+       */
+      routerTo:function(e){
+        /**
+         * getAttribute() 方法返回指定属性名的属性值。
+         */
+        let id = e.target.getAttribute('dataid')
+        var ename = goodsdatadel.recName
+        var ephone = goodsdatadel.recPhoneNo
+        var eaddress = goodsdatadel.address
+        console.log(ename,ephone,eaddress)
+        this.$router.push({
+          name:'deccontent',
+          params:{
+
+          }
+        })
+        console.log(id)
       }
   }
-    // mounted () {
-    //   axios.post('https://www.easy-mock.com/mock/5bf26de2a78cb61ecbaed73a/example/example').then(res => {
-    //     setTimeout(() => {
-    //       // localStorage.setItem("data",JSON.stringify(res.data.rspBody.addList))
-    //       console.log("111111");
-    //     },2000)
-    //   })
-    // },
 
   }
 
