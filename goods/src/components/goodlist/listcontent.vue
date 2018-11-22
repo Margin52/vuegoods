@@ -1,14 +1,17 @@
 <template>
   <div class="listcontent">
-    <div class="listcontentbox" v-for="(goodsdatadel, index) in goodsdata" :key="index">
+    <div>
+      <div class="listcontentbox" v-for="(goodsdatadel, index) in goodsdata" :data-key="index" :key="index">
         <p>{{goodsdatadel.recName}}</p>
         <p>{{goodsdatadel.recPhoneNo}}</p>
         <p><span v-if="goodsdatadel.checkIsUsed==='1'">[默认]</span>{{goodsdatadel.address}}</p>
         <router-link to="goodsdec" >
           <img @click="routerTo" :dataid="goodsdatadel.recAddrId" src="../../assets/images/listedit.png"/>
         </router-link>
+      </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -25,9 +28,6 @@ export default {
       id:'',
     }
   },
-  created(){
-    this.moockdata()
-    },
   mounted(){
     this.isNull()
   },
@@ -44,14 +44,12 @@ export default {
     isNull:function(){
       var strings = '';
       strings = localStorage.getItem("goodsdata")
-        if (strings.length == 0)
+        if (!!strings)
         {
-          this.moockdata()
-        }else{
           var datas = JSON.parse(strings)
           this.goodsdata = datas
-          // console.log("123")
-
+        }else{
+          this.moockdata()
         }
     },
     /**
@@ -106,6 +104,11 @@ export default {
         })
 
       }
+  },
+  watch: {
+    'goodsdata': function (old, nVal) {
+      console.log('***', old.length, nVal.length)
+    }
   }
 
   }
@@ -115,8 +118,6 @@ export default {
 .listcontent{
   display:flex;
   flex-direction: column;
-  box-sizing: border-box;
-
 }
 .listcontentbox{
   height:1.81rem;

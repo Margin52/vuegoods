@@ -18,6 +18,7 @@
 <style lang='scss' scoped type='text/css'>
 .listfooter{
   width:100%;
+  padding-top:0.05rem;
   height:1.26rem;
   background:#fff;
 }
