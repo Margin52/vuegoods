@@ -18,24 +18,6 @@ export default {
     listcontent,
     listfooter
   }
-  // data(){
-  //   return{
-  //     listcontentarr:[
-  //       {
-  //         listconname:"杨昊",
-  //         listcontel:15202926079,
-  //         listconadd:"陕西省西安市雁塔区中兴产业园",
-  //         listconedit: listedit
-  //       },
-  //       {
-  //         listconname:"Matail",
-  //         listcontel:18066520611,
-  //         listconadd:"陕西省西安市雁塔区唐延南路10号",
-  //         listconedit: listedit
-  //       }
-  //     ]
-  //   }
-  // }
 }
 </script>
 <style lang="scss">

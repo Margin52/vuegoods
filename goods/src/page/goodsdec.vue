@@ -1,20 +1,42 @@
 <template>
   <div class="goodsdec">
     <decheader></decheader>
-    <deccontent></deccontent>
-    <decfooter></decfooter>
+    <deccontent :getId="getId"></deccontent>
   </div>
 </template>
 
 <script type='text/ecmascript-6'>
 import decheader from "../components/goodsdec/decheader"
 import deccontent from "../components/goodsdec/deccontent"
-import decfooter from "../components/goodsdec/decfooter"
   export default {
+    data(){
+      return{
+        page:'',
+        code:'',
+        getId:''
+      }
+    },
     components:{
       decheader,
-      deccontent,
-      decfooter
+      deccontent
+    },
+    created(){
+      this.getID()
+    },
+    methods:{
+      getID :function(){
+        /**
+         * page和code是测试，getId是需要传送的值
+         */
+        // this.page = this.$route.params.page
+        // this.code = this.$route.params.code
+        this.getId = this.$route.params.getId
+
+        // console.log('page',this.page)
+        // console.log('code',this.code)
+        console.log(this.getId)
+
+      }
     }
 
   }

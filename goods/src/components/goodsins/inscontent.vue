@@ -65,6 +65,7 @@ import axios from 'axios'
            */
           this.isDefault = "1"
         }
+        console.log(this.isDefault)
       },
       /**
        * 客户端能力调用
@@ -94,7 +95,7 @@ import axios from 'axios'
         // console.log(data)
         if(data){
           if(user && tel && add && deladd){
-            if(!this.isDefault || this.isDefault === "0"){
+            if(!this.isDefault || this.isDefault === "1"){
               /**
                * 未设置默认状态
                */

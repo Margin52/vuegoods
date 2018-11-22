@@ -6,18 +6,12 @@ import goodsdec from '../page/goodsdec.vue'
 import Goodslist from '../page/Goodslist.vue'
 import listcontent from '../components/goodlist/listcontent.vue'
 import deccontent from '../components/goodsdec/deccontent.vue'
-import reg from '../page/reg.vue'
 
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      name: 'reg',
-      component: reg
-    },
     {
       path: '/HelloWorld',
       name: 'HelloWorld',
@@ -34,7 +28,7 @@ export default new Router({
       component: goodsdec
     },
     {
-      path: '/Goodslist',
+      path: '/',
       name: 'Goodslist',
       component: Goodslist
     },

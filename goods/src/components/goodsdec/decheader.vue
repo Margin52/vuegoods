@@ -1,6 +1,6 @@
 <template>
   <div class="decheader">
-    <router-link to="/Goodslist">
+    <router-link to="/">
       <img src="../../assets/images/listback.png" alt=""/>
     </router-link>
     <span>关闭</span>

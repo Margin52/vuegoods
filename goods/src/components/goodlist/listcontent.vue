@@ -3,8 +3,8 @@
     <div class="listcontentbox" v-for="(goodsdatadel, index) in goodsdata" :key="index">
         <p>{{goodsdatadel.recName}}</p>
         <p>{{goodsdatadel.recPhoneNo}}</p>
-        <p><span>[默认]</span>{{goodsdatadel.address}}</p>
-        <router-link to="/goodsdec" >
+        <p><span v-if="goodsdatadel.checkIsUsed==='1'">[默认]</span>{{goodsdatadel.address}}</p>
+        <router-link to="goodsdec" >
           <img @click="routerTo" :dataid="goodsdatadel.recAddrId" src="../../assets/images/listedit.png"/>
         </router-link>
     </div>
@@ -17,17 +17,19 @@ export default {
   data () {
     return {
       isShow:false,
+      islook:'',
       goodsdata:[],
       ename:'',
       ephone:'',
-      eaddress:''
+      eaddress:'',
+      id:'',
     }
   },
   created(){
+    this.moockdata()
     },
   mounted(){
     this.isNull()
-    this.moockdata()
   },
   methods:{
     /**
@@ -93,17 +95,16 @@ export default {
          * getAttribute() 方法返回指定属性名的属性值。
          */
         let id = e.target.getAttribute('dataid')
-        var ename = goodsdatadel.recName
-        var ephone = goodsdatadel.recPhoneNo
-        var eaddress = goodsdatadel.address
-        console.log(ename,ephone,eaddress)
+        console.log(id)
         this.$router.push({
-          name:'deccontent',
+          name:'goodsdec',
           params:{
-
+            page:'1',
+            code:'8989',
+            getId:id
           }
         })
-        console.log(id)
+
       }
   }
 
