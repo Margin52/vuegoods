@@ -24,10 +24,22 @@ export default {
 body{
   background:#f6f6f6;
 }
-.listfooter{
-  position:fixed;
-  bottom:0px;
+.goodlist{
+  height:100%;
+  display:flex;
+  flex-direction: column;
+  width:100%;
+  justify-content: space-between;
 }
+.listcontent{
+  width:100%;
+  height:9.0rem;
+  display:flex;
+  flex-direction: column;
+  flex:1;
+  overflow-y: scroll;
+}
+
 </style>
 
 

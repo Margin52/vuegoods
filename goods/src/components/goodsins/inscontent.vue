@@ -23,9 +23,9 @@
       <img @click="changeimg" v-if="!isShow" src="../../assets/images/decbut.png" alt="">
       <span>设为默认</span>
     </div>
-    <div class="insfooter">
+    <router-link tag="div" class="insfooter" to="/">
       <p @click="savemsg">保存</p>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -95,7 +95,7 @@ import axios from 'axios'
         // console.log(data)
         if(data){
           if(user && tel && add && deladd){
-            if(!this.isDefault || this.isDefault === "1"){
+            if(!this.isDefault || this.isDefault === "0"){
               /**
                * 未设置默认状态
                */
@@ -121,8 +121,9 @@ import axios from 'axios'
                 'recPhoneNo':tel,
                 'address':deladd
               })
+              data.reverse()
               localStorage.setItem("goodsdata",JSON.stringify(data))
-              console.log(localStorage.getItem("goodsdata"))
+              // console.log(localStorage.getItem("goodsdata"))
               alert("您已保存成功")
 
             }
