@@ -8,13 +8,15 @@
 import goodsins from'./page/goodsins'
 import Goodslist from'./page/Goodslist'
 import goodsdec from'./page/goodsdec'
+import index from './page/index'
 
 export default {
   name: 'App',
   components:{
     goodsins,
     Goodslist,
-    goodsdec
+    goodsdec,
+    index
   }
 }
 </script>
