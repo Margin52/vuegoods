@@ -102,7 +102,6 @@ export default {
             getId:id
           }
         })
-
       }
   },
   watch: {
